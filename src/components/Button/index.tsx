@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { clsx } from "clsx";
 import { Slot } from "@radix-ui/react-slot";
 
 export interface ButtonProps {
@@ -8,8 +7,6 @@ export interface ButtonProps {
 }
 
 export const Button = ({ children, asChild }: ButtonProps) => {
-  const className = clsx("text-gray-100 font-sans font-bold");
-
   const Comp = asChild ? Slot : "button";
 
   return (
