@@ -16,6 +16,11 @@ export default {
         type: "inline-radio",
       },
     },
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as Meta<TextProps>;
 
@@ -40,11 +45,6 @@ export const CustomComponent: StoryObj<TextProps> = {
   },
   argTypes: {
     children: {
-      table: {
-        disable: true,
-      },
-    },
-    asChild: {
       table: {
         disable: true,
       },
