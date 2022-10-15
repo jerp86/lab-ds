@@ -10,7 +10,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "test": "test-storybook"
+    "test": "test-storybook --maxWorkers=50%"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.0",
