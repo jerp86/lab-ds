@@ -14,6 +14,9 @@ export default {
 export const Default: StoryObj = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
+    const checkElement = canvas.getByRole("checkbox", {
+      name: /lembrar de mim por 30 dias/i,
+    });
 
     userEvent.type(
       canvas.getByPlaceholderText("Digite seu e-mail"),
@@ -21,10 +24,14 @@ export const Default: StoryObj = {
     );
     userEvent.type(canvas.getByPlaceholderText("******"), "123456");
 
+    userEvent.click(checkElement);
+
     userEvent.click(canvas.getByRole("button"));
 
-    waitFor(() =>
-      expect(canvas.getByText("Login realizado!")).toBeInTheDocument()
-    );
+    expect(checkElement).toBeInTheDocument();
+    waitFor(() => {
+      expect(canvas.getByText("Login realizado!")).toBeInTheDocument();
+      expect(checkElement).toBeChecked();
+    });
   },
 };
